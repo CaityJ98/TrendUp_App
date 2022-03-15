@@ -4,4 +4,5 @@ class User < ApplicationRecord
   # allows for database authentication, registering a user, recovering password, validating data, remembering user. 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_many :listings 
 end
