@@ -7,12 +7,19 @@
             <div class='col mb-4'>
 <%# height of 100 %>
                 <div class="card border-dark h-100">
-                    <div class="card-body">
-                    <h5><%=listing.title%></h5>
-                    <p class="card-text text-secondary"><%=listing.description%></p>
-                    </div>
+                    <%=image_tag "clothes.jpg", class: "thumbnail card-img top", alt:"clothes rack"%>
+                        <div class="card-body">
+                            <h5><%=listing.title%></h5>
+                            <p class="card-text text-secondary"><%=listing.description%></p>
+                            <%# spaced horizontal but evenly %>
+                                <div class='d-flex justify-content-between align-items-end'>
+                                    <%=link_to "See More", listing_path(listing.id), class: "btn btn-outline-primary"%>
+                                    <h5><%=format_price(listing.price)%></h5> 
+                                </div>
+                        </div>
                 </div>
             </div>
+        
         <%end%>
    </div>
 
