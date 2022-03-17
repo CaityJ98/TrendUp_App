@@ -3,7 +3,9 @@
 <%=link_to "TrendUp", root_path, class: "navbar-brand" %>
 </div>
 <ul class="navbar-nav mr-5-lg">
-
+<li class="nav-item">
+    <%=link_to "Listings", listings_path, class: "nav-link"%>
+</li>
 <%# if user is signed in render a link t0 log out %>
 <%if user_signed_in?%>
 <%# <span>Hello, <%=current_user.email%> </span> 
