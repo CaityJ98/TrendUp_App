@@ -7,7 +7,11 @@
             <div class='col mb-4'>
 <%# height of 100 %>
                 <div class="card border-dark h-100">
-                    <%=image_tag "clothes.jpg", class: "thumbnail card-img top", alt:"clothes rack"%>
+                        <%if listing.picture.attached? %>
+                            <%=image_tag listing.picture, alt: listing.title, class:"thumbnail card-img top"%>
+                        <%else%>
+                            <%=image_tag "clothes.jpg", alt: "A rack of clothes", class:"thumbnail card-img top"%>
+                        <%end%>
                         <div class="card-body">
                             <h5><%=listing.title%></h5>
                             <p class="card-text text-secondary"><%=listing.description%></p>
