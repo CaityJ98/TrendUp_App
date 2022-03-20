@@ -22,17 +22,19 @@ class Listing < ApplicationRecord
   before_save :remove_stain
   before_validation :convert_price_to_cents, if: :price_changed?
 
+  #removes white space and sanitizes code
   private
   def remove_whitespace
     self.title = self.title.strip
     self.description = self.description.strip 
   end 
-
+#removes the word stain and replaces it with mark
   def remove_stain
     self.title = self.title.gsub(/stain/i, "mark")
     self.description = self.title.gsub(/stain/i, "mark")
 
   end
+  #convert the price to cents in database. 
 def convert_price_to_cents
     self.price = (self.attributes_before_type_cast["price"].to_f * 100)
 end
