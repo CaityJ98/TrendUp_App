@@ -43,7 +43,6 @@ end
     if @listing.save
       redirect_to @listing, notice: "Listing successfuly updated"
     else
-      pp @listing.errors
       set_form_vars
       render "edit", notice:"something went wrong"
 
@@ -56,9 +55,9 @@ end
   end 
 
   private
-  # features of listings 
+  # conditions of listings 
   def listing_params
-    params.require(:listing).permit(:title, :price, :category_id, :condition, :description, :picture)
+    params.require(:listing).permit(:title, :price, :category_id, :condition, :description, :picture, feature_ids: [])
   end
 # unless the user is signed in and it is their own listing they cannot alter or delete the listing
   def authorize_user
@@ -75,6 +74,7 @@ end
  
     @categories = Category.all
     @conditions = Listing.conditions.keys
+    @features = Feature.all 
   end
   
 end
