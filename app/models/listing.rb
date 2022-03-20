@@ -1,6 +1,8 @@
 class Listing < ApplicationRecord
   belongs_to :user
   belongs_to :category
+ 
+ 
   #number mapping to match features to a value
 
   # conditions A Bit worn, Worn a few times, Like New , Brand New 
