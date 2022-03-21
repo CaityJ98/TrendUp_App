@@ -13,6 +13,8 @@ if Category.count == 0
         puts "created #{c} category"
     end 
 end 
+# if feature is not selected cycle through all features
+
     features = ["male", "female", "small", "medium", "large"]
     if Feature.count == 0
         features.each do |f|

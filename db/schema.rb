@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2022_03_20_123642) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
+# 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -42,19 +42,19 @@ ActiveRecord::Schema.define(version: 2022_03_20_123642) do
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
-
+# categories table 
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
-
+# features table
   create_table "features", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
-
+# listing features table
   create_table "listing_features", force: :cascade do |t|
     t.bigint "listing_id", null: false
     t.bigint "feature_id", null: false
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2022_03_20_123642) do
     t.index ["feature_id"], name: "index_listing_features_on_feature_id"
     t.index ["listing_id"], name: "index_listing_features_on_listing_id"
   end
-
+# create listings table
   create_table "listings", force: :cascade do |t|
     t.string "title"
     t.integer "condition"
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 2022_03_20_123642) do
     t.index ["category_id"], name: "index_listings_on_category_id"
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
-
+# listing features table
   create_table "listings_features", force: :cascade do |t|
     t.bigint "listing_id", null: false
     t.bigint "feature_id", null: false
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 2022_03_20_123642) do
     t.index ["feature_id"], name: "index_listings_features_on_feature_id"
     t.index ["listing_id"], name: "index_listings_features_on_listing_id"
   end
-
+# create orders table
   create_table "orders", force: :cascade do |t|
     t.bigint "listing_id", null: false
     t.bigint "buyer_id", null: false
@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 2022_03_20_123642) do
     t.index ["listing_id"], name: "index_orders_on_listing_id"
     t.index ["seller_id"], name: "index_orders_on_seller_id"
   end
-
+# create users table
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -111,7 +111,7 @@ ActiveRecord::Schema.define(version: 2022_03_20_123642) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-
+# active storage table for storing listings data. 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "listing_features", "features"

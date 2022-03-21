@@ -31,7 +31,17 @@
         <%=f.label :category_id, class: "form-label"%>
         <%=f.select :category_id, @categories.map {|c| [c.name, c.id]}, class: "form-select"%>
     </div>
+<<<<<<< HEAD
 
+=======
+
+
+    
+
+<%# Conditions - Like new, Brand New, a bit worn, worn a few times %>
+    <h5 class="mb-3 p-2">Condition</h5>
+
+>>>>>>> 938f0e4 (fixed styling error between listing page and home page)
         <%@conditions.each do |option|%>
             <%=f.label :condition, format_condition(option), class: "form-label mr-1"%>
             <%=f.radio_button :condition, option, class:"mr-2"%>
