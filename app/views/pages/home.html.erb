@@ -1,18 +1,15 @@
 <div class="background">
-<div class="title_page">
-<div class="d-flex justify-content-center text-sm-center  text-md-center text-lg-center w-50 p-5 ">
-<h1> Welcome to TrendUp</h1>
-</div>
-<div class="d-flex justify-content-center text-sm-center text-md-center text-lg-center mr-5 p-2">
+<%# ensures screen is responsive with appropriate measurements so it is spaced evenly %>
+<div class="h-100 d-flex flex-column justify-content-center align-items-center w-80 p-3 ml-5 mr-5 mb-5">
+<%# enwraps title in badge %>
+<h1> <span class="badge bg-secondary">Welcome to TrendUp</span></h1></h1>
+<%# sample text %>
 <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
 sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
 
-</div>
-<div class="d-flex justify-content-center w-50 p-3">
+
+<%# places clothes image on front page %>
 <%=image_tag "clothes.jpg", alt: "clothes", class:"thumbnail card-img top"%>
+
 </div>
-</div>
-
-
-
 </div>

@@ -1,4 +1,5 @@
 class Listing < ApplicationRecord
+  #listings belong to users and categories. Listings can have one user and one category. 
   belongs_to :user
   belongs_to :category
   #number mapping to match features to a value

@@ -1,0 +1,46 @@
+.title_page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+  font-weight: 600;
+  font-size: large;
+}
+
+.title_page h1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  background-color: black;
+  color: white;
+}
+
+.title_page p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: black;
+  color: white;
+}
+
+.title_page img {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 40vh;
+  width: 40vh;
+}
+
+.background {
+  height: 100vh;
+  width: 100%;
+  background-image: url(image-path("background.jpg"));
+  background-size: cover;
+}
+/*# sourceMappingURL=pages.css.map */

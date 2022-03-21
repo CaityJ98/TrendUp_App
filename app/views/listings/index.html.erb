@@ -1,3 +1,5 @@
+
+<%# Listings Page %>
 <h1 class="hero-title text-center">Listings</h1>
 <section class="container">
 <%# when screen in small use one column, when medium use 2 columns, when large show 4 columns %>    
@@ -7,11 +9,14 @@
             <div class='col mb-4'>
 <%# height of 100 %>
                 <div class="card border-dark h-100">
+<%# If a usre uploads a picture then use said picture if not show generic clothes picture.%>
                         <%if listing.picture.attached? %>
                             <%=image_tag listing.picture, alt: listing.title, class:"thumbnail card-img top"%>
                         <%else%>
                             <%=image_tag "clothes.jpg", alt: "A rack of clothes", class:"thumbnail card-img top"%>
                         <%end%>
+<%# Styling of listings, contains them into cards to keep things neat a spaced evenly%>
+<%# displays: title, picture, price, description and see more button %>
                         <div class="card-body">
                             <h5><%=listing.title%></h5>
                             <p class="card-text text-secondary"><%=listing.description%></p>
