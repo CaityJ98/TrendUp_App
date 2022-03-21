@@ -1,4 +1,5 @@
 module ApplicationHelper
+# styles alert notificiations and tells app what to return for each notice
     def select_alert_subclass(input)
         case input
         when 'notice'
