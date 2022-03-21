@@ -9,7 +9,7 @@
             <div class='col mb-4'>
 <%# height of 100 %>
                 <div class="card border-dark h-100">
-<%# If a usre uploads a picture then use said picture if not show generic clothes picture.%>
+
                         <%if listing.picture.attached? %>
                             <%=image_tag listing.picture, alt: listing.title, class:"thumbnail card-img top"%>
                         <%else%>

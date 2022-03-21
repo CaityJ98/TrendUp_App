@@ -1,6 +1,22 @@
 <%# Create Listing form: Title, Price, Features, Categories, Conditions, Description, Image Upload %>
 <%# Title section %>
 <%=form_with model: @listing, local: true do |f|%>
+<%# alerts user of errors, erros can be dismissed. %>
+    <%if @listing.errors.any?%>
+        <div class="alert alert-error alert-dissmisable fade show">
+            <h3><%=pluralize(@listing.errors.count, "error")%> prohibited this listing from being saved</h3>
+            <ul>
+                <%@listing.errors.full_messages.each do |message|%>
+                <li><%=message%></li>
+                <%end%>
+            </ul>
+            <button type="button" class="close" data-dismiss= "alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        
+    <%end%>
+
     <div class='form-group mb-3 p-2'>
         <%=f.label :title, class: "form-label"%>
         <%=f.text_field :title%>
@@ -8,26 +24,33 @@
     <%# Price  %>
      <div class='form-group mb-3 p-2'>
         <%=f.label :price, class: "form-label"%>
-        <%=f.number_field :price%>
+        <%=f.number_field :price, step:"0.01"%>
     </div>
     <%# categories dresses, tops, shorts, jeans, outerwear, shoes %>
     <div class='form-group mb-3 p-2'>
         <%=f.label :category_id, class: "form-label"%>
         <%=f.select :category_id, @categories.map {|c| [c.name, c.id]}, class: "form-select"%>
     </div>
-<%# Conditions - Like new, Brand New, a bit worn, worn a few times %>
-    <h5 class="mb-3 p-2">Condition</h5>
+
         <%@conditions.each do |option|%>
             <%=f.label :condition, format_condition(option), class: "form-label mr-1"%>
             <%=f.radio_button :condition, option, class:"mr-2"%>
 
+        <%end%>
+        <h5 class="mb-3 p-2 ml -2">Features</h5>
+        <div class="d-flex justify-content-evenly form-check form-check-line mb3 ml-2"> 
+            <%=f.collection_check_boxes :feature_ids, @features, :id, :name do |b|%>
+            <%=b.label class: 'form-check-label'%>
+            <%=b.check_box class: 'form-check-line mr-2'%>
+            
+        </div>
         <%end%>
         <%# a field for image upload that only accepts png,jpg and jpeg images.  %>
  <div class='form-group mb-3 p-2'>
         <%=f.label :picture, class: "form-label"%>
         <%=f.file_field :picture, accept: "image/png,image/jpg,image/jpeg", class: "form-select"%>
     </div>
-<%# Field for description of item %>
+
      <div class='form-group mb-3 p-2 w-50'>
         <%=f.label :description, class: "form-label"%>
         <%=f.text_area :description, class: "form-control"%>
