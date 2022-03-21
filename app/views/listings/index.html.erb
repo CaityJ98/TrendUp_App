@@ -10,12 +10,11 @@
 <%# height of 100 %>
                 <div class="card border-dark h-100">
 
-<<<<<<< HEAD
-=======
+
 
 <%# If a user uploads a picture then use said picture if not show generic clothes picture.%>
 
->>>>>>> 938f0e4 (fixed styling error between listing page and home page)
+
                         <%if listing.picture.attached? %>
                             <%=image_tag listing.picture, alt: listing.title, class:"thumbnail card-img top"%>
                         <%else%>
